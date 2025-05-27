@@ -1,6 +1,8 @@
 # ai-sdk-project
 Repo to keep track of AI e2e project to craete a ML pipeline for edge computer.
 
+# notes
+Should i remove AI_Software_Development_Kit from repo and just link to download refrence
 
 # Venv
 

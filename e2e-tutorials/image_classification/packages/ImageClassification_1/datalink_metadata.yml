@@ -1,0 +1,15 @@
+createdOn: 2025-05-28 12:32:11.323606
+fileFormatVersion: 1.0.0
+id: null
+inputs:
+- mapping: null
+  name: vision_payload
+  timeShiftingReference: false
+  type: ImageSet
+timeShifting:
+  enabled: false
+  id: null
+  periodicity: null
+  startingPoint: null
+updatedOn: 2025-05-28 12:32:11.323608
+version: null

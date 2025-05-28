@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ImageClassification (None)</title>
+</head>
+<body>
+<section>
+<h1>Pipeline ImageClassification (None)</h1>
+<p>This pipeline runs a TensorFlow Lite model on an Industrial Edge device.
+The model was trained to recognize and classify images of following Siemens SIMATIC automation products: ET 200AL, ET 200eco PN, ET 200SP, S7-1200, S7-1500.
+
+The pipeline is designed to be fed from Vision Connector via ZMQ in BayerRG8 pixel format.
+The pipeline output is to be sent to the Databus.
+</p>
+<strong>Inputs</strong>
+<ul>
+<li>
+<i>vision_payload (ImageSet)</i>
+<br />
+</li>
+</ul>
+<strong>Outputs</strong>
+<ul>
+<li>
+<i>prediction (String)</i>
+<br />
+</li>
+</ul>
+<hr />
+<section>
+<h1>PythonComponent inference</h1>
+<p>This component uses a trained TensorFlow Lite image classification model that reads the vision_payload input and produces a prediction as an output.
+</p>
+<strong>Inputs</strong>
+<ul>
+<li>
+<i>vision_payload (ImageSet)</i>
+<br />
+</li>
+</ul>
+<strong>Outputs</strong>
+<ul>
+<li>
+<i>prediction (String)</i>
+<br />
+</li>
+</ul>
+<strong>Metrics</strong>
+<ul>
+<li>
+<i>ic_probability</i>
+</li>
+</ul>
+<strong>Resources</strong>
+<ul>
+<li>entrypoint.py</li>
+<li>src/payload.py</li>
+<li>src/vision_classifier.py</li>
+<li>models/classification_mobilnet.tflite</li>
+</ul>
+<strong>Entrypoint</strong>
+<ul>
+<li>entrypoint.py</li>
+</ul>
+</section>
+</section>
+</body>
+</html>

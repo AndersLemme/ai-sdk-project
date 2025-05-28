@@ -1,0 +1,19 @@
+environment:
+  azure_devops: not found
+  github_actions: not found
+  gitlab_ci: not found
+  jupyter: false
+industrial_ai:
+  simaticai: 2.3.0
+  vep-template-sdk: not found
+pipeline:
+  file_extensions:
+  - .tflite
+  - .txt
+  - .py
+  python_versions:
+  - '3.11'
+platform:
+  os: Linux
+  python_version: 3.11.12
+  release: 5.15.167.4-microsoft-standard-WSL2

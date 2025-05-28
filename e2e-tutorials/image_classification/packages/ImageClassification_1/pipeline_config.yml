@@ -1,0 +1,61 @@
+dataFlowPipeline:
+  components:
+  - batch:
+      inputBatch: 'No'
+      outputBatch: 'No'
+    description: 'This component uses a trained TensorFlow Lite image classification
+      model that reads the vision_payload input and produces a prediction as an output.
+
+      '
+    entrypoint: ./entrypoint.py
+    hwType: CPU
+    inputType:
+    - name: vision_payload
+      type: ImageSet
+    name: inference
+    outputType:
+    - name: prediction
+      type: String
+    - name: ic_probability
+      type: String
+    replicas: 1
+    runtime:
+      type: python
+      version: '3.11'
+    version: 0.0.1
+  pipelineDag:
+  - source: Databus.vision_payload
+    target: inference.vision_payload
+  - source: inference.prediction
+    target: Databus.prediction
+  - source: inference.ic_probability
+    target: Databus.ic_probability
+  pipelineInputs:
+  - name: vision_payload
+    type: ImageSet
+  pipelineOutputs:
+  - name: prediction
+    type: String
+  - name: ic_probability
+    topic: /siemens/edge/aiinference/ImageClassification/1/metrics/inference/ic_probability
+    type: String
+dataFlowPipelineInfo:
+  author: AI SDK
+  createdOn: 2025-05-28 12:32:11.324217
+  dataFlowPipelineVersion: '1'
+  description: 'This pipeline runs a TensorFlow Lite model on an Industrial Edge device.
+
+    The model was trained to recognize and classify images of following Siemens SIMATIC
+    automation products: ET 200AL, ET 200eco PN, ET 200SP, S7-1200, S7-1500.
+
+
+    The pipeline is designed to be fed from Vision Connector via ZMQ in BayerRG8 pixel
+    format.
+
+    The pipeline output is to be sent to the Databus.
+
+    '
+  packageId: d4e253e2-67d3-4b7a-a4cf-1742792bc405
+  projectName: ImageClassification
+fileFormatVersion: 1.2.0
+packageType: full
